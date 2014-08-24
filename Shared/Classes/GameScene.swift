@@ -17,6 +17,17 @@ class GameScene: SKScene {
     let swift = Swift()
     var state = State.Ready
 
+    // free fall
+    let vy: CGFloat = 12.0   // velocity
+    var y0: CGFloat = 0     // vertical offset
+    let g: CGFloat = 9.8 * 0.1  // gravity
+    var t: CGFloat = 0   // time
+
+    func freeFall() -> CGFloat {
+        // free fall equation
+        return y0 + vy * t - g * pow(t, 2) / 2
+    }
+
     override init(size: CGSize) {
         super.init(size: size)
 
@@ -37,6 +48,20 @@ class GameScene: SKScene {
     func start() {
         state = .Ready
         swift.position = CGPointMake(view!.bounds.width * 0.1, view!.bounds.size.height / 2)
+        y0 = swift.position.y
+        t = 0
+    }
+
+    func kill() {
+        state = .Dying
+        swift.die {
+            self.end()
+        }
+    }
+
+    func end() {
+        // game over
+        state = .Over
     }
 
     #if os(iOS)
@@ -70,12 +95,26 @@ class GameScene: SKScene {
     }
 
     func flap() {
-        // TODO: flap
+        // flap
+        y0 = swift.position.y
+        t = 0
     }
 
     // MARK: Update
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        if state != .Flying {
+            return
+        }
+
+        // check fall down (simplified)
+        if swift.position.y - swift.calculateAccumulatedFrame().size.height / 2 <= 0 {
+            kill()
+            return
+        }
+
+        swift.position.y = freeFall()
+        t += 1
     }
 
 }

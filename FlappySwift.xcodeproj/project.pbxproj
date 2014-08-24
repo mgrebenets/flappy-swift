@@ -23,6 +23,10 @@
 		E442D5F019A993B00059D5AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E442D5EF19A993B00059D5AF /* Images.xcassets */; };
 		E442D5F119A993B00059D5AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E442D5EF19A993B00059D5AF /* Images.xcassets */; };
 		E442D5FB19A9C2020059D5AF /* FlappySwiftOSXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E442D5FA19A9C2020059D5AF /* FlappySwiftOSXTests.swift */; };
+		E4CB8F3B19AA2A510032E7B8 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = E4CB8F3919AA2A510032E7B8 /* Explosion.sks */; };
+		E4CB8F3C19AA2A510032E7B8 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = E4CB8F3919AA2A510032E7B8 /* Explosion.sks */; };
+		E4CB8F3D19AA2A510032E7B8 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = E4CB8F3A19AA2A510032E7B8 /* spark.png */; };
+		E4CB8F3E19AA2A510032E7B8 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = E4CB8F3A19AA2A510032E7B8 /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +68,8 @@
 		E442D5F619A9C2020059D5AF /* FlappySwiftOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlappySwiftOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E442D5F919A9C2020059D5AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E442D5FA19A9C2020059D5AF /* FlappySwiftOSXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlappySwiftOSXTests.swift; sourceTree = "<group>"; };
+		E4CB8F3919AA2A510032E7B8 /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
+		E4CB8F3A19AA2A510032E7B8 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +169,8 @@
 			children = (
 				E442D5C019A98C520059D5AF /* Classes */,
 				E442D5EF19A993B00059D5AF /* Images.xcassets */,
+				E4CB8F3919AA2A510032E7B8 /* Explosion.sks */,
+				E4CB8F3A19AA2A510032E7B8 /* spark.png */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -337,7 +345,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4CB8F3D19AA2A510032E7B8 /* spark.png in Resources */,
 				E442D5F019A993B00059D5AF /* Images.xcassets in Resources */,
+				E4CB8F3B19AA2A510032E7B8 /* Explosion.sks in Resources */,
 				E442D5AA19A988990059D5AF /* Images.xcassets in Resources */,
 				E442D5A819A988990059D5AF /* Main.storyboard in Resources */,
 			);
@@ -354,7 +364,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4CB8F3E19AA2A510032E7B8 /* spark.png in Resources */,
 				E442D5F119A993B00059D5AF /* Images.xcassets in Resources */,
+				E4CB8F3C19AA2A510032E7B8 /* Explosion.sks in Resources */,
 				E442D5D419A98E540059D5AF /* Images.xcassets in Resources */,
 				E442D5D719A98E540059D5AF /* MainMenu.xib in Resources */,
 			);
@@ -669,6 +681,7 @@
 				E442D5BB19A988990059D5AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E442D5BC19A988990059D5AF /* Build configuration list for PBXNativeTarget "FlappySwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -677,6 +690,7 @@
 				E442D5BE19A988990059D5AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E442D5E419A98E540059D5AF /* Build configuration list for PBXNativeTarget "FlappySwiftOSX" */ = {
 			isa = XCConfigurationList;
@@ -685,6 +699,7 @@
 				E442D5E619A98E540059D5AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E442D5FE19A9C2020059D5AF /* Build configuration list for PBXNativeTarget "FlappySwiftOSXTests" */ = {
 			isa = XCConfigurationList;
@@ -693,6 +708,7 @@
 				E442D60019A9C2020059D5AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
