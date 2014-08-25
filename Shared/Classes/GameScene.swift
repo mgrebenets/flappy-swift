@@ -28,18 +28,25 @@ class GameScene: SKScene {
         return y0 + vy * t - g * pow(t, 2) / 2
     }
 
-    var pipe: Pipe!
+    var pipes = [Pipe]()
     let vx: CGFloat = 2.0
 
     override init(size: CGSize) {
         super.init(size: size)
 
+
+        // seed the rands
+        var p: UnsafeMutablePointer<time_t> = nil
+        srand48(Int(time(p)))
+
         backgroundColor = SKColor.grayColor()
         swift.setScale(0.1)
         addChild(swift)
 
-        pipe = Pipe(size: CGSizeMake(100, frame.size.height), offsetRatio: 0.4, gapRatio: 0.3)
-        addChild(pipe)
+        pipes = [Pipe(), Pipe(), Pipe(), Pipe()]    // 4  pipes
+        for pipe in pipes {
+            addChild(pipe)
+        }
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -57,7 +64,15 @@ class GameScene: SKScene {
         y0 = swift.position.y
         t = 0
 
-        pipe.position = CGPointMake(200, 0)
+        var pipeWidth: CGFloat = 100
+        var minPipeDistance: CGFloat = 150
+        for (index, pipe) in enumerate(pipes) {
+            pipe.size = CGSizeMake(pipeWidth, frame.height)
+            pipe.offsetRatio = 0.2 + CGFloat(drand48()) / 3.0
+            pipe.gapRatio = 0.25 + CGFloat(drand48()) / 10.0
+            pipe.layout()
+            pipe.position = CGPointMake(frame.size.width + CGFloat(index) * (pipeWidth + minPipeDistance + CGFloat(arc4random_uniform(50))), 0)
+        }
     }
 
     func kill() {
@@ -122,7 +137,9 @@ class GameScene: SKScene {
         }
 
         // move pipe
-        pipe.position.x -= vx
+        for pipe in pipes {
+            pipe.position.x -= vx
+        }
 
         // move swift
         swift.position.y = freeFall()

@@ -13,13 +13,15 @@ class Pipe: SKNode {
     var offsetRatio: CGFloat
     var gapRatio: CGFloat
     private var top, bottom: SKSpriteNode
+    private var texture: SKTexture
 
-    init(size: CGSize, offsetRatio: CGFloat, gapRatio: CGFloat = 0.3) {
+    init(size: CGSize = CGSizeZero, offsetRatio: CGFloat = 0.0, gapRatio: CGFloat = 0.0) {
         self.size = size
         self.offsetRatio = offsetRatio
         self.gapRatio = gapRatio
-        bottom = SKSpriteNode(imageNamed: "Pipe")
-        top = SKSpriteNode(imageNamed: "Pipe")
+        texture = SKTexture(imageNamed: "Pipe")
+        bottom = SKSpriteNode(texture: texture)
+        top = SKSpriteNode(texture: texture)
         super.init()
 
         // center rect for scaling
@@ -43,7 +45,9 @@ class Pipe: SKNode {
     }
 
     func layout() {
-        // TODO: layout
+
+//        bottom.xScale = size.width / texture.size().width
+//        bottom.yScale = (size.height * offsetRatio) / texture.size().height
 
         bottom.size = CGSizeMake(size.width, size.height * offsetRatio)
         top.size = CGSizeMake(size.width, size.height * (1 - offsetRatio - gapRatio))
