@@ -23,6 +23,8 @@
 		E442D5F019A993B00059D5AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E442D5EF19A993B00059D5AF /* Images.xcassets */; };
 		E442D5F119A993B00059D5AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E442D5EF19A993B00059D5AF /* Images.xcassets */; };
 		E442D5FB19A9C2020059D5AF /* FlappySwiftOSXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E442D5FA19A9C2020059D5AF /* FlappySwiftOSXTests.swift */; };
+		E4851E6E19AAC195004AB724 /* Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4851E6D19AAC195004AB724 /* Pipe.swift */; };
+		E4851E6F19AAC195004AB724 /* Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4851E6D19AAC195004AB724 /* Pipe.swift */; };
 		E4CB8F3B19AA2A510032E7B8 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = E4CB8F3919AA2A510032E7B8 /* Explosion.sks */; };
 		E4CB8F3C19AA2A510032E7B8 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = E4CB8F3919AA2A510032E7B8 /* Explosion.sks */; };
 		E4CB8F3D19AA2A510032E7B8 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = E4CB8F3A19AA2A510032E7B8 /* spark.png */; };
@@ -68,6 +70,7 @@
 		E442D5F619A9C2020059D5AF /* FlappySwiftOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlappySwiftOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E442D5F919A9C2020059D5AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E442D5FA19A9C2020059D5AF /* FlappySwiftOSXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlappySwiftOSXTests.swift; sourceTree = "<group>"; };
+		E4851E6D19AAC195004AB724 /* Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pipe.swift; sourceTree = "<group>"; };
 		E4CB8F3919AA2A510032E7B8 /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
 		E4CB8F3A19AA2A510032E7B8 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,6 +183,7 @@
 			children = (
 				E442D5C119A98C520059D5AF /* GameScene.swift */,
 				E442D5EB19A990BD0059D5AF /* Swift.swift */,
+				E4851E6D19AAC195004AB724 /* Pipe.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -389,6 +393,7 @@
 				E442D5C219A98C520059D5AF /* GameScene.swift in Sources */,
 				E442D5A519A988990059D5AF /* GameViewController.swift in Sources */,
 				E442D59F19A988990059D5AF /* AppDelegate.swift in Sources */,
+				E4851E6E19AAC195004AB724 /* Pipe.swift in Sources */,
 				E442D5EC19A990BD0059D5AF /* Swift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +413,7 @@
 				E442D5EA19A98F6E0059D5AF /* GameScene.swift in Sources */,
 				E442D5CE19A98E540059D5AF /* AppDelegate.swift in Sources */,
 				E442D5CC19A98E540059D5AF /* main.swift in Sources */,
+				E4851E6F19AAC195004AB724 /* Pipe.swift in Sources */,
 				E442D5ED19A990BD0059D5AF /* Swift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

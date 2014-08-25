@@ -9,8 +9,8 @@
 import SpriteKit
 
 class Swift: SKNode {
-    var bird: SKSpriteNode
-    var explosion: SKEmitterNode!
+    private var bird: SKSpriteNode
+    private var explosion: SKEmitterNode!
 
     override init() {
         bird = SKSpriteNode(imageNamed: "Swift")
@@ -21,7 +21,8 @@ class Swift: SKNode {
         var path = NSBundle.mainBundle().pathForResource("Explosion", ofType: "sks")
         explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(path!) as SKEmitterNode
         explosion.targetNode = self
-        explosion.setScale(2)
+        explosion.particleColor = SKColor.redColor()
+        explosion.setScale(5)
     }
 
     required init(coder: NSCoder) {

@@ -28,12 +28,18 @@ class GameScene: SKScene {
         return y0 + vy * t - g * pow(t, 2) / 2
     }
 
+    var pipe: Pipe!
+    let vx: CGFloat = 2.0
+
     override init(size: CGSize) {
         super.init(size: size)
 
-        backgroundColor = SKColor.whiteColor()
+        backgroundColor = SKColor.grayColor()
         swift.setScale(0.1)
         addChild(swift)
+
+        pipe = Pipe(size: CGSizeMake(100, frame.size.height), offsetRatio: 0.4, gapRatio: 0.3)
+        addChild(pipe)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -50,6 +56,8 @@ class GameScene: SKScene {
         swift.position = CGPointMake(view!.bounds.width * 0.1, view!.bounds.size.height / 2)
         y0 = swift.position.y
         t = 0
+
+        pipe.position = CGPointMake(200, 0)
     }
 
     func kill() {
@@ -113,6 +121,10 @@ class GameScene: SKScene {
             return
         }
 
+        // move pipe
+        pipe.position.x -= vx
+
+        // move swift
         swift.position.y = freeFall()
         t += 1
     }
