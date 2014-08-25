@@ -25,6 +25,8 @@
 		E442D5FB19A9C2020059D5AF /* FlappySwiftOSXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E442D5FA19A9C2020059D5AF /* FlappySwiftOSXTests.swift */; };
 		E4851E6E19AAC195004AB724 /* Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4851E6D19AAC195004AB724 /* Pipe.swift */; };
 		E4851E6F19AAC195004AB724 /* Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4851E6D19AAC195004AB724 /* Pipe.swift */; };
+		E4851E7119AB0ECD004AB724 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4851E7019AB0ECD004AB724 /* RingBuffer.swift */; };
+		E4851E7219AB0ECD004AB724 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4851E7019AB0ECD004AB724 /* RingBuffer.swift */; };
 		E4CB8F3B19AA2A510032E7B8 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = E4CB8F3919AA2A510032E7B8 /* Explosion.sks */; };
 		E4CB8F3C19AA2A510032E7B8 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = E4CB8F3919AA2A510032E7B8 /* Explosion.sks */; };
 		E4CB8F3D19AA2A510032E7B8 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = E4CB8F3A19AA2A510032E7B8 /* spark.png */; };
@@ -71,6 +73,7 @@
 		E442D5F919A9C2020059D5AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E442D5FA19A9C2020059D5AF /* FlappySwiftOSXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlappySwiftOSXTests.swift; sourceTree = "<group>"; };
 		E4851E6D19AAC195004AB724 /* Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pipe.swift; sourceTree = "<group>"; };
+		E4851E7019AB0ECD004AB724 /* RingBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
 		E4CB8F3919AA2A510032E7B8 /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
 		E4CB8F3A19AA2A510032E7B8 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,6 +187,7 @@
 				E442D5C119A98C520059D5AF /* GameScene.swift */,
 				E442D5EB19A990BD0059D5AF /* Swift.swift */,
 				E4851E6D19AAC195004AB724 /* Pipe.swift */,
+				E4851E7019AB0ECD004AB724 /* RingBuffer.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -395,6 +399,7 @@
 				E442D59F19A988990059D5AF /* AppDelegate.swift in Sources */,
 				E4851E6E19AAC195004AB724 /* Pipe.swift in Sources */,
 				E442D5EC19A990BD0059D5AF /* Swift.swift in Sources */,
+				E4851E7119AB0ECD004AB724 /* RingBuffer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +420,7 @@
 				E442D5CC19A98E540059D5AF /* main.swift in Sources */,
 				E4851E6F19AAC195004AB724 /* Pipe.swift in Sources */,
 				E442D5ED19A990BD0059D5AF /* Swift.swift in Sources */,
+				E4851E7219AB0ECD004AB724 /* RingBuffer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

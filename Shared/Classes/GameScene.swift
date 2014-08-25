@@ -28,8 +28,22 @@ class GameScene: SKScene {
         return y0 + vy * t - g * pow(t, 2) / 2
     }
 
-    var pipes = [Pipe]()
+    var pipesBuffer = RingBuffer<Pipe>()
     let vx: CGFloat = 2.0
+    var pipeWidth: CGFloat = 100.0
+    var minPipeDistance: CGFloat = 150
+
+    func randomOffsetRatio() -> CGFloat {
+        return 0.2 + CGFloat(drand48()) / 3.0
+    }
+
+    func randomGapRatio() -> CGFloat {
+        return 0.25 + CGFloat(drand48()) / 10.0
+    }
+
+    func randomPipePositionWithOffset(offset: CGFloat) -> CGPoint {
+        return CGPointMake(offset + minPipeDistance + CGFloat(arc4random_uniform(50)), 0)
+    }
 
     override init(size: CGSize) {
         super.init(size: size)
@@ -43,8 +57,13 @@ class GameScene: SKScene {
         swift.setScale(0.1)
         addChild(swift)
 
-        pipes = [Pipe(), Pipe(), Pipe(), Pipe()]    // 4  pipes
-        for pipe in pipes {
+        // 4 pipes
+        pipesBuffer.add(Pipe())
+        pipesBuffer.add(Pipe())
+        pipesBuffer.add(Pipe())
+        pipesBuffer.add(Pipe())
+
+        for pipe in pipesBuffer.items {
             addChild(pipe)
         }
     }
@@ -64,14 +83,15 @@ class GameScene: SKScene {
         y0 = swift.position.y
         t = 0
 
-        var pipeWidth: CGFloat = 100
-        var minPipeDistance: CGFloat = 150
-        for (index, pipe) in enumerate(pipes) {
+        pipesBuffer.reset()
+        var offset = frame.size.width
+        for (index, pipe) in enumerate(pipesBuffer.items) {
             pipe.size = CGSizeMake(pipeWidth, frame.height)
-            pipe.offsetRatio = 0.2 + CGFloat(drand48()) / 3.0
-            pipe.gapRatio = 0.25 + CGFloat(drand48()) / 10.0
+            pipe.offsetRatio = randomOffsetRatio()
+            pipe.gapRatio = randomGapRatio()
             pipe.layout()
-            pipe.position = CGPointMake(frame.size.width + CGFloat(index) * (pipeWidth + minPipeDistance + CGFloat(arc4random_uniform(50))), 0)
+            pipe.position = randomPipePositionWithOffset(offset)
+            offset = pipe.position.x + pipeWidth
         }
     }
 
@@ -136,14 +156,32 @@ class GameScene: SKScene {
             return
         }
 
-        // move pipe
-        for pipe in pipes {
+        // move pipes
+        for pipe in pipesBuffer.items {
             pipe.position.x -= vx
         }
 
         // move swift
         swift.position.y = freeFall()
         t += 1
+
+        updatePipes()
+    }
+
+    func updatePipes() {
+
+        if pipesBuffer.first!.offscreenLeft {
+            // reuse first pipe in buffer
+            var pipe = pipesBuffer.first!
+            pipe.offsetRatio = randomOffsetRatio()
+            pipe.gapRatio = randomGapRatio()
+            pipe.layout()
+            pipe.position = randomPipePositionWithOffset(pipesBuffer.last!.position.x + pipeWidth)
+
+            // shift the ring
+            pipesBuffer.shift()
+
+        }
     }
 
 }

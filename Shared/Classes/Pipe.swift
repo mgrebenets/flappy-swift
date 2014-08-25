@@ -15,6 +15,10 @@ class Pipe: SKNode {
     private var top, bottom: SKSpriteNode
     private var texture: SKTexture
 
+    var offscreenLeft: Bool {
+        return position.x + size.width <= 0
+    }
+
     init(size: CGSize = CGSizeZero, offsetRatio: CGFloat = 0.0, gapRatio: CGFloat = 0.0) {
         self.size = size
         self.offsetRatio = offsetRatio
