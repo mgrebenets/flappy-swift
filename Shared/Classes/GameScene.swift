@@ -156,6 +156,14 @@ class GameScene: SKScene {
             return
         }
 
+        // collision test with walls
+        for pipe in pipesBuffer.items {
+            if pipe.hitTest(swift.calculateAccumulatedFrame()) {
+                kill()
+                return
+            }
+        }
+
         // move pipes
         for pipe in pipesBuffer.items {
             pipe.position.x -= vx
