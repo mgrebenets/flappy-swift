@@ -12,15 +12,24 @@ class GameScene: SKScene {
 
     enum State {
         case Ready, Flying, Dying, Over
+        var localizedName: String {
+            switch self {
+            case .Ready: return NSLocalizedString("Ready", comment: "Ready")
+            case .Flying: return NSLocalizedString("Flying", comment: "Flying")
+            case .Dying: return NSLocalizedString("Dying", comment: "Dying")
+            case .Over: return NSLocalizedString("Over", comment: "Over")
+            }
+        }
     }
 
     let swift = Swift()
-    var state = State.Ready
+    var state: State = .Ready
 
     // free fall
-    let vy: CGFloat = 12.0   // velocity
+    class var gravityDirection:CGFloat { return 1.0 }
+    let vy: CGFloat = gravityDirection * 12.0   // velocity
     var y0: CGFloat = 0     // vertical offset
-    let g: CGFloat = 9.8 * 0.1  // gravity
+    let g: CGFloat = gravityDirection * 9.8 * 0.1  // gravity
     var t: CGFloat = 0   // time
 
     func freeFall() -> CGFloat {
@@ -112,7 +121,7 @@ class GameScene: SKScene {
         handleTouch()
     }
     #else
-    override func mouseDown(theEvent: NSEvent!) {
+    override func mouseDown(theEvent: NSEvent) {
         handleTouch()
     }
     #endif
@@ -158,7 +167,7 @@ class GameScene: SKScene {
 
         // collision test with walls
         for pipe in pipesBuffer.items {
-            if pipe.hitTest(swift.calculateAccumulatedFrame()) {
+            if pipe ❌ swift.calculateAccumulatedFrame() {
                 kill()
                 return
             }

@@ -68,3 +68,8 @@ class Pipe: SKNode {
             || (rect.origin.y >= size.height && rect.origin.x + rect.size.width >= position.x && rect.origin.x <= position.x + size.width)
     }
 }
+
+infix operator ❌ { associativity left precedence 160 }
+func ❌ (pipe: Pipe, rect: CGRect) -> Bool {
+    return pipe.hitTest(rect)
+}
