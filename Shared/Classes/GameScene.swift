@@ -36,7 +36,7 @@ class GameScene: SKScene {
 
     func start() {
         state = .Ready
-        swift.position = CGPointMake(view.bounds.width * 0.1, view.bounds.size.height / 2)
+        swift.position = CGPointMake(view!.bounds.width * 0.1, view!.bounds.size.height / 2)
     }
 
     #if os(iOS)
