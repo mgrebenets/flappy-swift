@@ -58,8 +58,8 @@ class GameScene: SKScene {
         super.init(size: size)
 
 
-        // seed the rands
-        var p: UnsafeMutablePointer<time_t> = nil
+        // Seed the rands
+        let p: UnsafeMutablePointer<time_t> = nil
         srand48(Int(time(p)))
 
         backgroundColor = SKColor.grayColor()
@@ -106,7 +106,7 @@ class GameScene: SKScene {
 
     func kill() {
         state = .Dying
-        swift.die {
+        swift.die { [unowned self] in
             self.end()
         }
     }
@@ -117,7 +117,7 @@ class GameScene: SKScene {
     }
 
     #if os(iOS)
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         handleTouch()
     }
     #else
@@ -180,7 +180,7 @@ class GameScene: SKScene {
 
         // move swift
         swift.position.y = freeFall()
-        t += 1
+        t++
 
         updatePipes()
     }

@@ -8,8 +8,8 @@
 
 import SpriteKit
 
-class Swift: SKNode {
-    private var bird: SKSpriteNode
+final class Swift: SKNode {
+    private let bird: SKSpriteNode
     private var explosion: SKEmitterNode!
 
     override init() {
@@ -18,8 +18,8 @@ class Swift: SKNode {
         addChild(bird)
 
         // add explosion node
-        var path = NSBundle.mainBundle().pathForResource("Explosion", ofType: "sks")
-        explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(path!) as SKEmitterNode
+        let path = NSBundle.mainBundle().pathForResource("Explosion", ofType: "sks")
+        explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(path!) as! SKEmitterNode
         explosion.targetNode = self
         explosion.particleColor = SKColor.redColor()
         explosion.setScale(5)
