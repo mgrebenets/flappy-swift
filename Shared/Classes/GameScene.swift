@@ -94,7 +94,7 @@ class GameScene: SKScene {
 
         pipesBuffer.reset()
         var offset = frame.size.width
-        for (index, pipe) in enumerate(pipesBuffer.items) {
+        for (_, pipe) in pipesBuffer.items.enumerate() {
             pipe.size = CGSizeMake(pipeWidth, frame.height)
             pipe.offsetRatio = randomOffsetRatio()
             pipe.gapRatio = randomGapRatio()
@@ -117,7 +117,7 @@ class GameScene: SKScene {
     }
 
     #if os(iOS)
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         handleTouch()
     }
     #else
@@ -189,7 +189,7 @@ class GameScene: SKScene {
 
         if pipesBuffer.first!.offscreenLeft {
             // reuse first pipe in buffer
-            var pipe = pipesBuffer.first!
+            let pipe = pipesBuffer.first!
             pipe.offsetRatio = randomOffsetRatio()
             pipe.gapRatio = randomGapRatio()
             pipe.layout()

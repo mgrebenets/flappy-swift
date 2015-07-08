@@ -62,8 +62,8 @@ class Pipe: SKNode {
     }
 
     func hitTest(rect: CGRect) -> Bool {
-        var topRect = CGRectOffset(top.frame, position.x, position.y)
-        var bottomRect = CGRectOffset(bottom.frame, position.x, position.y)
+        let topRect = CGRectOffset(top.frame, position.x, position.y)
+        let bottomRect = CGRectOffset(bottom.frame, position.x, position.y)
         return CGRectIntersectsRect(rect, topRect) || CGRectIntersectsRect(rect, bottomRect)
             || (rect.origin.y >= size.height && rect.origin.x + rect.size.width >= position.x && rect.origin.x <= position.x + size.width)
     }
